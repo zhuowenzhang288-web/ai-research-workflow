@@ -1,0 +1,32 @@
+{
+  "task": "tasks/Q1.md",
+  "report1": "arm-noskill/Q1/IDEA_REPORT.md",
+  "report2": "arm-skill/Q1/IDEA_REPORT.md",
+  "scores": {
+    "rep1": {
+      "D1": 4,
+      "D2": 3,
+      "D3": 4,
+      "D4": 4,
+      "D5": 4
+    },
+    "rep2": {
+      "D1": 5,
+      "D2": 4,
+      "D3": 5,
+      "D4": 5,
+      "D5": 5
+    }
+  },
+  "better": "rep2",
+  "rationale": "X最强在证据纪律与查新闭环：区分事实/假设，给出检索范围与待核验项，最小实验含oracle和沉默漂移设定，H1-H3可检验；弱点是部分工作仅列编号未精读正文。Y最强在批判“替换/时间衰减”默认条件，并把修订建模为需回归验证的假设；弱点是检索说明简略、部分推断未标注，实验依赖人工标注gold，执行不确定性较高。",
+  "_model": "deepseek-v4-pro-0813",
+  "_usage": {
+    "prompt_tokens": 2516,
+    "completion_tokens": 1757,
+    "total_tokens": 4273,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1562
+    }
+  }
+}

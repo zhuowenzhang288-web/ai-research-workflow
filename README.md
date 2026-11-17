@@ -86,7 +86,9 @@ eval/                         # 评测：协议、任务、14 份产物、评分
 | 阶段 | 内容 |
 |---|---|
 | §0 总原则 | 证据四分、单一事实源、执行/评审分离、门内自主门前停人 |
+| §0 触发机制 | 命中科研任务即告知用户"正在查找"并派子 agent 检索 |
 | §1 选题 | 反向追问五问 + 选题漏斗（含失败想法，作反重复记忆） |
+| §1.3 顶会适配 | CCF-A 六维打分 + 否决项，判断 idea 够不够 A 类（查新后执行） |
 | §2 查新 | 三轮定向核查（相同问题/相同方法/相邻领域），通过才进实验 |
 | §3 读论文 | 拆论文五要素 + 争议地图（共识/分歧/空白） |
 | §4 实验 | 固定预算、基线先行、评测只读、keep/discard 日志、简洁性准则 |
@@ -94,6 +96,26 @@ eval/                         # 评测：协议、任务、14 份产物、评分
 | §6 写作 | 先 story 后 paper、写作契约、生成-评估-适配循环 |
 | §7 评审 | 模拟挑剔审稿人 / 锚定评审 / 三层审计链 |
 | §8 回应 | Rebuttal 拆解 + 改投硬约束 |
+| §10 参考来源 | 方法论出处（Idea2Paper / autoresearch / ARIS / REASONS / intra-paper 等） |
+
+## CCF-A 适配性判断（§1.3）
+
+对已完成查新的 idea 做六维打分（问题重要性 / 新颖性 / 方法深度 / 证据强度 / 叙事潜力 / venue fit，各 1–5），
+另设 5 类否决项（有直接先例、增量调参、无可核验结果路径、单数据集、依赖不可复现环境）。
+总分 ≥24 且新颖性与问题重要性均 ≥4 → 强 A 候选；18–23 → 补强后重判；<18 或命中否决项 → 不够 A。
+这是研究判断，不是录用概率；venue fit 须对照目标 venue 近 3 年论文。
+
+## 参考来源
+
+本 skill 的方法论出处（详见 SKILL.md §10）：
+
+| 来源 | 借鉴了什么 |
+|---|---|
+| [Idea2Paper / Idea2Story](https://github.com/AgentAlphaAGI/Idea2Paper) | 结构化 story 中间表示、锚定式盲评、检索辅助查新 |
+| [karpathy/autoresearch](https://github.com/karpathy/autoresearch) | 固定预算实验循环、keep/discard 日志、简洁性准则 |
+| [ARIS](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 执行/评审分离、门控与多层审计、artifact 契约 |
+| [REASONS](https://arxiv.org/abs/2405.02228) | 引用幻觉率 HR 客观指标 → `verify_citations.py` |
+| [Intra-paper verification](https://github.com/Ranjitha2493/intra-paper-claim-verification) | 结论-证据一致性、SUPPORTED/UNSUPPORTED 判据 |
 
 ## 引用核验工具
 

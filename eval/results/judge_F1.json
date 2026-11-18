@@ -4,29 +4,21 @@
   "report2": "arm-skill/F1/IDEA_REPORT.md",
   "scores": {
     "rep1": {
-      "D1": 3,
-      "D2": 2,
-      "D3": 2,
-      "D4": 3,
-      "D5": 3
+      "D1": 5,
+      "D2": 4,
+      "D3": 5,
+      "D4": 4,
+      "D5": 5
     },
     "rep2": {
-      "D1": 4,
-      "D2": 4,
-      "D3": 4,
+      "D1": 5,
+      "D2": 5,
+      "D3": 5,
       "D4": 4,
-      "D5": 4
+      "D5": 5
     }
   },
   "better": "rep2",
-  "rationale": "X最强在于给出具体核验方式和数字出处，但MemArena编号月份2608与所称提交日期2026-05-20明显矛盾却标已核验，且MemOS编号与Y冲突，证据纪律失信。Y最强在于边界透明：区分作者报告数字与复现事实，明确API限流、未核验项和错号排除，整体无内部矛盾；弱点是部分数字仅取自摘要，未锚定正文表号。",
-  "_model": "deepseek-v4-pro-0813",
-  "_usage": {
-    "prompt_tokens": 2999,
-    "completion_tokens": 5163,
-    "total_tokens": 8162,
-    "completion_tokens_details": {
-      "reasoning_tokens": 4969
-    }
-  }
+  "rationale": "X最强在逐条核验细致，如指出MemoryOS副标题不符，证据纪律好；较弱在备选仅2篇且存在两个MemAgent易混、检索范围未明说。Y最强在表格规范、证据分级清晰，明确区分论文自报值与未复现状态，并给出防幻觉弃用记录；较弱在部分数字未与正文逐一对账，但整体更可审计、更完整。",
+  "_model": "deepseek-v4-pro-ga-260813"
 }

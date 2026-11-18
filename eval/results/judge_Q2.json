@@ -4,32 +4,21 @@
   "report2": "arm-skill/Q2/IDEA_REPORT.md",
   "scores": {
     "rep1": {
-      "D1": 5,
+      "D1": 4,
+      "D2": 5,
+      "D3": 4,
+      "D4": 5,
+      "D5": 5
+    },
+    "rep2": {
+      "D1": 4,
       "D2": 4,
       "D3": 4,
       "D4": 4,
       "D5": 4
-    },
-    "rep2": {
-      "D1": 5,
-      "D2": 5,
-      "D3": 5,
-      "D4": 4,
-      "D5": 5
     }
   },
-  "better": "rep2",
-  "rationale": "X最强在查新透明、证据分层和协议闭环（held-out+canary+种子），但10代×3种子及造题成本未细化。Y最强在给出具体数值与开源代码路径、实验落地感强；最弱在检索受限未说明、个别断言过强（“已证伪”）且预算偏乐观。整体X更严谨可核。",
-  "_model": "deepseek-v4-pro-ga-260813",
-  "_usage": {
-    "completion_tokens": 2990,
-    "prompt_tokens": 2512,
-    "total_tokens": 5502,
-    "prompt_tokens_details": {
-      "cached_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 2815
-    }
-  }
+  "better": "rep1",
+  "rationale": "X最强：查新诚实标注核对状态，最小实验多任务+回归+hack审计可执行；弱点为研究问题稍分散。Y最强：文献对照具体、问题聚焦；弱点为未说明检索范围与局限，实验规模较小、轨迹级回归检测指标较单薄。整体X论证更完整且可检验性强。",
+  "_model": "deepseek-v4-pro-ga-260813"
 }

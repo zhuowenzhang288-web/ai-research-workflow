@@ -4,32 +4,21 @@
   "report2": "arm-skill/Q4/IDEA_REPORT.md",
   "scores": {
     "rep1": {
-      "D1": 5,
-      "D2": 2,
-      "D3": 3,
-      "D4": 4,
+      "D1": 4,
+      "D2": 4,
+      "D3": 5,
+      "D4": 5,
       "D5": 5
     },
     "rep2": {
-      "D1": 4,
+      "D1": 5,
       "D2": 5,
       "D3": 5,
       "D4": 4,
-      "D5": 4
+      "D5": 5
     }
   },
   "better": "rep2",
-  "rationale": "X最强：证据纪律好，明确[未核验]与[假设]，克制不臆断空白；最弱：核查范围窄。Y最强：结构完整，Limitation逐篇清晰，交叉空白切入点具体；最弱：引用疑似未来/虚构编号（2606/2610）却作事实呈现，未标注受限，可信度受损。故X更可靠。",
-  "_model": "deepseek-v4-pro-ga-260813",
-  "_usage": {
-    "completion_tokens": 3335,
-    "prompt_tokens": 2443,
-    "total_tokens": 5778,
-    "prompt_tokens_details": {
-      "cached_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 3159
-    }
-  }
+  "rationale": "Y最强在逐条标注核验状态，覆盖13篇并对“自报增益/未复现”作诚实区分，共识项多源且给适用范围。最弱是可行切入只集中单一主线。X最强在给出成本感知写策略、RL学写策略等具体可检验方案；最弱是部分共识点仅单一来源，若干limitation依赖训练知识未核验。综合查新与证据纪律，Y更稳。",
+  "_model": "deepseek-v4-pro-0813"
 }

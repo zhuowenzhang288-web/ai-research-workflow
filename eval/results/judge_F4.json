@@ -8,28 +8,17 @@
       "D2": 4,
       "D3": 4,
       "D4": 4,
-      "D5": 4
+      "D5": 5
     },
     "rep2": {
       "D1": 5,
       "D2": 5,
       "D3": 5,
-      "D4": 4,
+      "D4": 5,
       "D5": 5
     }
   },
   "better": "rep2",
-  "rationale": "X最强在诚实界定自我改进语义、给出核验表并明示严格跨episode专项benchmark未核验；弱者是其三项仅相近而非严格自我进化。Y最强在主题更贴自动设计/进化agent且分数具体；但把方法自带评测套件当标准benchmark，且对不确定性与界定说明不足。",
-  "_model": "deepseek-v4-pro-ga-260813",
-  "_usage": {
-    "completion_tokens": 6268,
-    "prompt_tokens": 2970,
-    "total_tokens": 9238,
-    "prompt_tokens_details": {
-      "cached_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 6101
-    }
-  }
+  "rationale": "X结构清晰，三条均给出编号与可回溯分数，且诚实标注未核验项；但检索范围说明不足，对SWE-bench/WebArena/OSWorld如何刻画自我改进论证偏弱。Y选材更切题，RSIGym等直接面向自我进化，编号、来源、存疑、备选、查不到项分层透明，证据纪律与查新最强；仅信息密度稍大。整体Y更严谨、更扣题。",
+  "_model": "deepseek-v4-pro-ga-260813"
 }

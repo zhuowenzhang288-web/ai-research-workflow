@@ -6,30 +6,19 @@
     "rep1": {
       "D1": 5,
       "D2": 3,
-      "D3": 3,
-      "D4": 4,
+      "D3": 5,
+      "D4": 5,
       "D5": 4
     },
     "rep2": {
       "D1": 5,
       "D2": 4,
       "D3": 5,
-      "D4": 4,
+      "D4": 5,
       "D5": 5
     }
   },
   "better": "rep2",
-  "rationale": "X最强在方法、指标与图注较详尽；但钻石层成功口径含糊/有误，证据纪律受损。Y最强在证据诚实：明确钻石层仅1/3、图7细节待核验，并严格分离作者声明与分析推断；最弱在实现细节略简。整体Y更可信。",
-  "_model": "deepseek-v4-pro-ga-260813",
-  "_usage": {
-    "completion_tokens": 7086,
-    "prompt_tokens": 2980,
-    "total_tokens": 10066,
-    "prompt_tokens_details": {
-      "cached_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 6923
-    }
-  }
+  "rationale": "X 图表支撑更细，给出轴/对照/消融数值，并明确标注“图像本体未核”与“分析/推断”，证据纪律和结构完整最佳；弱点是查新仍可补充检索范围。Y 最简明，显式区分“结果”与“作者定性观点”，避免把结论当事实；但图表说明较略，与低层方法对比不够具体。综合 X 更完整、纪律更严，判定 X 更好。",
+  "_model": "deepseek-v4-pro-ga-260813"
 }

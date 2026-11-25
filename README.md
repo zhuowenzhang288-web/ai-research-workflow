@@ -1,97 +1,96 @@
-# AI Research Workflow
+# 让 AI Agent 真的会做科研：现象驱动研究工作流
 
-一套**跨平台的科研工作流 skill**：不是"自动写论文"的框架，也不是纯文档，而是**操作纪律 + 可执行工具**的组合。
+> **先做实验找规律，再反推 idea。不凭空胡想。**
 
-核心方法是**现象驱动**：不凭空想 idea，先在小系统里跑海量小实验找规律，由规律反推出 idea，再查新、再上卡验证。
+一套跨平台、带可执行工具的科研工作流 skill——把「AI agent 想 idea 很不靠谱」这个毛病，用**现象驱动**和**真能跑的脚本**治住。
 
-## 为什么是"跨平台不锁死"
+---
 
-- `SKILL.md` 用的是通用 frontmatter 格式（`name` + `description`），Claude Code / Codex / Cursor / opencode / DSH 都认
-- `scripts/` 里的脚本**只用 Python 标准库**，任何能跑 `bash` 的 agent 都能 `python3 xxx.py` 直接执行，不依赖任何框架的专属 API
+## 你的 AI 是不是也这样？
 
-## 能力（scripts/，都会真正干活）
+| 痛点 | 表现 |
+|---|---|
+| 凭空胡想 idea | 张口就是几个听过八百遍的方向，查新一过就死 |
+| 只读摘要就下结论 | 扫一眼 abstract 就说"这个没人做过"，其实正文里早写满了 |
+| 把猜想当结论 | "我认为""应该可以"，没有实验支撑，写成论文全露馅 |
+| 引用凭印象编 | 编号、作者、数字随手写，一核准是错的 |
 
-| 脚本 | 环节 | 用法 |
+这些不是 AI 不够聪明，是**没有一套硬纪律 + 可执行工具**在压着它。
+
+---
+
+## 我们换了个思路：现象驱动
+
+传统科研 workflow 是「先想 idea → 查新 → 做实验」。但 **agent 凭空想 idea 的能力很弱**——真实项目里连开 24 个方向，0 个存活。
+
+**反过来**就通了：
+
+```
+先造现象 → 找规律 → 规律引出 idea → 查新 → 上卡验证
+```
+
+在能精确测量的小系统里跑几百个秒级实验，让规律自己浮出来——idea 是挖出来的，不是憋出来的。
+
+---
+
+## 不是又一份"提示词"，是能直接跑的脚本
+
+纯文档谁都会写，这套带 **4 个零依赖脚本**（只靠 Python 标准库，任何 agent 跑 `bash` 就能用）：
+
+| 脚本 | 干什么 | 一句话用法 |
 |---|---|---|
-| `novelty_check.py` | 查新 | `python3 scripts/novelty_check.py "关键词"` — 查 arXiv 出候选清单 |
-| `experiment_log.py` | 实验日志 | `add` 记录一次 / `list` 汇总 keep·discard·crash |
-| `verify_citations.py` | 引用核验 | 核验报告里的 arXiv/DOI，输出幻觉率 HR |
-| `audit_chain.py` | 审计链 | 五层审计逐层判定，汇总 PASS/WARN/FAIL/BLOCKED |
+| `novelty_check.py` | 查新 | `python3 scripts/novelty_check.py "GRPO collapse"` → 直接列出 arXiv 候选 |
+| `experiment_log.py` | 实验日志 | `add` 记一次 / `list` 汇总 keep·discard·crash |
+| `verify_citations.py` | 引用核验 | 一键核验报告里的 arXiv/DOI，输出幻觉率 HR |
+| `audit_chain.py` | 投稿审计 | 五层审计链，汇总 PASS/WARN/FAIL |
 
-> 四个脚本都是纯 Python 标准库，零第三方依赖。`python3 scripts/<名>.py --help` 看用法。
+---
 
-## 安装（各平台）
-
-核心是同两份东西：`SKILL.md` + `scripts/`。放到各自的 skill 目录即可。
-
-### Claude Code
+## 30 秒开始用
 
 ```bash
-mkdir -p ~/.claude/skills/ai-research-workflow
-cp -r SKILL.md scripts ~/.claude/skills/ai-research-workflow/
+git clone https://github.com/zhuowenzhang288-web/ai-research-workflow
+cd ai-research-workflow
 ```
 
-### Codex
+然后复制到你的 agent 平台（下面任选一个）：
 
-```bash
-mkdir -p ~/.codex/skills/ai-research-workflow
-cp -r SKILL.md scripts ~/.codex/skills/ai-research-workflow/
-```
+| 平台 | 命令 |
+|---|---|
+| **Claude Code** | `mkdir -p ~/.claude/skills/ai-research-workflow && cp -r SKILL.md scripts ~/.claude/skills/ai-research-workflow/` |
+| **Codex** | `mkdir -p ~/.codex/skills/ai-research-workflow && cp -r SKILL.md scripts ~/.codex/skills/ai-research-workflow/` |
+| **Cursor** | `mkdir -p .cursor/skills/ai-research-workflow && cp -r SKILL.md scripts .cursor/skills/ai-research-workflow/` |
+| **opencode** | 在 `opencode.json` 里 `"instructions": ["/path/to/SKILL.md"]` |
+| **DeepSeek Harness** | `mkdir -p ~/.dsh/skills/ai-research-workflow && cp -r SKILL.md scripts ~/.dsh/skills/ai-research-workflow/`（或装 [bundle](https://github.com/zhuowenzhang288-web/dsh-ai-research-workflow)） |
 
-（或把 SKILL.md 内容并进项目的 `AGENTS.md`。）
+> 核心就是 `SKILL.md` + `scripts/` 两份东西，放对目录就能用，不绑定任何框架。
 
-### Cursor
+---
 
-```bash
-mkdir -p .cursor/skills/ai-research-workflow
-cp -r SKILL.md scripts .cursor/skills/ai-research-workflow/
-```
+## 它从真实项目里长出来，不是纸上谈兵
 
-### opencode
+这套方法的每一个规则，都是在一个**单卡 ICML 选题项目**里用真金白银换来的：
 
-在项目的 `opencode.json` 里引用：
+- **检索型挖空位 24 方向 0 存活** → 才悟出"现象驱动"
+- **一天内两个方向被"空白"骗了** → 才写下"找到空白≠值得补"
+- **两个评测 bug 白烧 40+ 次 GPU** → 才定下"管道先验证"
 
-```json
-{ "instructions": ["/path/to/ai-research-workflow/SKILL.md"] }
-```
+这些教训已整理成 6 条「实战教训」写进 SKILL.md，每条都标了现身章节。
 
-### DeepSeek Harness
+---
 
-```bash
-mkdir -p ~/.dsh/skills/ai-research-workflow
-cp -r SKILL.md scripts ~/.dsh/skills/ai-research-workflow/
-```
-
-也可以装 DSH 专属 bundle（一键安装），见 [dsh-ai-research-workflow](https://github.com/zhuowenzhang288-web/dsh-ai-research-workflow)。
-
-> 各平台 skills 目录的准确路径以各平台最新文档为准；核心不变——`SKILL.md` 和 `scripts/` 过去就能用。
-
-## 目录结构
+## 目录
 
 ```
-SKILL.md                      # 工作流本体（现象驱动 + 查新 + 实验 + 审计）
+SKILL.md                  # 完整方法论（384 行 + 6 条实战教训）
 scripts/
-├── novelty_check.py          # 查新
-├── experiment_log.py         # 实验日志
-├── verify_citations.py       # 引用核验
-└── audit_chain.py            # 五层审计
+├── novelty_check.py      # 查新
+├── experiment_log.py     # 实验日志
+├── verify_citations.py   # 引用核验
+└── audit_chain.py        # 五层审计
 README.md
 LICENSE
 ```
-
-## 工作流概览
-
-| 阶段 | 内容 |
-|---|---|
-| §0 触发 | 命中科研任务 → 告知 + 派子 agent（A/B/C 三档记忆隔离） |
-| §1 选题 | **现象驱动优先**（先小实验找规律再想 idea）+ 反向追问 + 选题漏斗 + CCF-A 六维判断 |
-| §2 查新 | `novelty_check.py` 拉候选 → 三轮核查 → 只读摘要不得 KEEP/KILL（取证标准）→ 撞车可深挖可证伪新预言 |
-| §3 读论文 | 拆论文五要素 + 争议地图 |
-| §4 实验 | 固定预算、基线先行、评测只读、`experiment_log.py` 记 keep/discard；§4.2.1 造现象发现循环 |
-| §5 结论 | result-to-claim 三问 + claim 状态机 |
-| §6 写作 | 先 story 后 paper + 写作契约 |
-| §7 评审 | 模拟审稿 / 锚定评审 / `audit_chain.py` 五层审计链 |
-| §8 回应 | Rebuttal 拆解 + 改投硬约束 |
 
 ## License
 

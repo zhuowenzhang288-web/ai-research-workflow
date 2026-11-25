@@ -25,27 +25,9 @@
 
 **反过来**就通了——idea 是挖出来的，不是憋出来的：
 
-```mermaid
-flowchart TD
-    A["🏭 造现象<br/>小系统 · 几百个秒级实验<br/>预注册 / 异常四关 / 管道验证 / 退出条件"] --> B["🔍 找规律<br/>追问普遍成立的简单规律 → 公式化"]
-    B --> C["💡 规律反推 idea<br/>不凭空想"]
-    C --> D{"📚 三轮查新<br/>必须读正文：方法 + 实验 + 图表"}
-    D -->|"撞车"| E["⛏️ 深挖可证伪新预言<br/>找文献没测过的旋钮维度"]
-    D -->|"实质重复"| F["🗑️ 淘汰 · 记入漏斗"]
-    E -->|"预言成立"| G["🖥️ 上卡验证<br/>固定预算 · 基线先行 · 评测只读"]
-    G --> H["📝 先 story 后 paper"]
-    H --> I["🛡️ 五层审计链<br/>全 PASS 才出终稿"]
+![架构图](docs/architecture.svg)
 
-    T1["novelty_check.py"] -. "拉候选" .-> D
-    T2["experiment_log.py"] -. "keep·discard·crash" .-> G
-    T3["verify_citations.py"] -. "引用核验 HR" .-> I
-    T4["audit_chain.py"] -. "逐层判定" .-> I
-
-    classDef tool fill:#f0f0f0,stroke:#999,stroke-dasharray:4,color:#555;
-    class T1,T2,T3,T4 tool;
-```
-
-在能精确测量的小系统里跑几百个秒级实验，让规律自己浮出来。虚线框是 4 个配套脚本，各挂在它服务的环节上。
+在能精确测量的小系统里跑几百个秒级实验，让规律自己浮出来。下方色条标出 4 个配套脚本各自服务的环节。
 
 ---
 

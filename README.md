@@ -44,6 +44,21 @@
 
 ---
 
+## 双保险：AGENTS.md 兜底 + skill 补全
+
+普通 skill 有个通病：**靠 agent 自觉加载，一忙就忘**——核心纪律再好，没加载等于没有。
+
+这套工作流是两层设计：
+
+| 层 | 内容 | 加载方式 |
+|---|---|---|
+| `AGENTS.md` | 33 行核心纪律（现象驱动 / 查新取证 / 证据四分 / 门控） | **每次请求自动注入**，不漏 |
+| `SKILL.md` | 384 行完整方法论 + 6 条实战教训 | 按需加载，细节补全 |
+
+用法：把 `AGENTS.md` 放到项目根目录（DSH 由 `dsh-agent-instructions` 插件自动注入；Claude Code / Codex 同理），再把 `SKILL.md` + `scripts/` 装进 skills 目录。核心纪律永远在场，完整方法论随取随用。
+
+---
+
 ## 30 秒开始用
 
 ```bash
@@ -61,7 +76,7 @@ cd ai-research-workflow
 | **opencode** | 在 `opencode.json` 里 `"instructions": ["/path/to/SKILL.md"]` |
 | **DeepSeek Harness** | `mkdir -p ~/.dsh/skills/ai-research-workflow && cp -r SKILL.md scripts ~/.dsh/skills/ai-research-workflow/`（或装 [bundle](https://github.com/zhuowenzhang288-web/dsh-ai-research-workflow)） |
 
-> 核心就是 `SKILL.md` + `scripts/` 两份东西，放对目录就能用，不绑定任何框架。
+> 核心三份东西：`AGENTS.md`（放项目根目录，自动注入兜底）+ `SKILL.md` + `scripts/`（装进 skills 目录），放对位置就能用，不绑定任何框架。
 
 ---
 

@@ -65,9 +65,10 @@
 ```bash
 git clone https://github.com/zhuowenzhang288-web/ai-research-workflow
 cd ai-research-workflow
+./install.sh          # 自动检测本机 agent 平台，一键装好
 ```
 
-然后复制到你的 agent 平台（下面任选一个）：
+`install.sh` 会自动找到你机器上已装的支持平台（Claude Code / Codex / Cursor / DSH / AGENTS）并拷贝 `SKILL.md` + `scripts/`。想手动或装到特定平台：
 
 | 平台 | 命令 |
 |---|---|
@@ -78,6 +79,46 @@ cd ai-research-workflow
 | **DeepSeek Harness** | `mkdir -p ~/.dsh/skills/ai-research-workflow && cp -r SKILL.md scripts ~/.dsh/skills/ai-research-workflow/`（或装 [bundle](https://github.com/zhuowenzhang288-web/dsh-ai-research-workflow)） |
 
 > 核心三份东西：`AGENTS.md`（放项目根目录，自动注入兜底）+ `SKILL.md` + `scripts/`（装进 skills 目录），放对位置就能用，不绑定任何框架。
+
+---
+
+## 真实 A/B：同一个任务，裸 agent vs 加载 skill
+
+不是嘴上说有用——同一底座（OpenCode + kimi-k3）、同一道题（「经验记忆的自动修订」选题报告），唯一变量是加不加载本 skill，由另一个模型家族盲评：
+
+| | 无 skill（裸 agent） | 有 skill |
+|---|---|---|
+| 引用 | 只提论文名，无编号、无核验 | 每篇带 arXiv 号，开头注明"检索 8 组关键词逐条核实" |
+| 证据纪律 | 假设与事实混写 | 显式标「我方推测」，还设了反向假设 H3 |
+| 差异论证 | 一段并列描述 | 与 4 篇最接近工作逐条 1v1 对应 |
+| 风险意识 | 无 | 写明"H1 可能不成立，届时降级为人工确认" |
+| **盲评总分** | **18/25** | **24/25** |
+
+<details>
+<summary><b>▶ 无 skill 版（节选）</b>——写得顺，但全程无核验痕迹</summary>
+
+> 真实场景：Voyager 式技能库、Reflexion 式教训记忆、A-MEM/MemGPT 式长期条目……代表性工作：(1) Reflexion（NeurIPS'23）与 Voyager（ICML'24）：纯追加式……(3) A-MEM（NeurIPS'25）：新条目触发旧条目属性更新……
+>
+> 待验假设 H1：跨条目矛盾数对失败轨迹的区分度优于条目年龄；H2：软修订的有用条目保留率显著高于硬删除……
+
+论文名随手写，没有编号——其中 A-MEM 标成 NeurIPS'25，**这个归属根本没核过**。
+</details>
+
+<details>
+<summary><b>▶ 有 skill 版（节选）</b>——每个事实都能指回来源</summary>
+
+> （查新：arXiv 检索 8 组关键词并逐条核实；机制为摘要级论文事实，差异与空白为我方判断。）
+>
+> - **MemoryBank**（arXiv:2305.10250）：艾宾浩斯曲线时间衰减……
+> - **PACMI**（arXiv:2610.05732, 2026-10）：溯源图 + 四态有效性格……
+>
+> 待验假设（我方推测）：H1……H3（反向）：THEANINE（arXiv:2406.10996）主张保留过时记忆——修订可能损害需历史上下文的任务。
+>
+> 风险：成败信号噪声大（H1 可能不成立），届时降级为"发现+人工确认修订"。
+
+</details>
+
+8 道题的完整评测中，本题两臂产物与盲评原文已存档在 [docs/before-after/](docs/before-after/)——可自行复核每一个字。
 
 ---
 

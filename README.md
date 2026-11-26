@@ -50,9 +50,11 @@
 | 脚本 | 干什么 | 一句话用法 |
 |---|---|---|
 | `novelty_check.py` | 查新 | `python3 scripts/novelty_check.py "GRPO collapse"` → 直接列出 arXiv 候选 |
+| `novelty_report.py` | 查新取证校验 | 校验报告里每篇引用的「读取程度」标注，缺标即 FAIL |
+| `funnel.py` | 选题漏斗 | `add` 记录 / `list` 过滤 / `narrow-watch` 防窄化预警 |
 | `experiment_log.py` | 实验日志 | `add` 记一次 / `list` 汇总 keep·discard·crash |
 | `verify_citations.py` | 引用核验 | 一键核验报告里的 arXiv/DOI，输出幻觉率 HR |
-| `audit_chain.py` | 投稿审计 | 五层审计链，汇总 PASS/WARN/FAIL |
+| `audit_chain.py` | 投稿审计 | 五层审计链；`verify-results` 自动查「结果编造」 |
 
 ---
 

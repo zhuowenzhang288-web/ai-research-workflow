@@ -1,8 +1,20 @@
-# 让 AI Agent 真的会做科研：现象驱动研究工作流
+<div align="center">
 
-> **先做实验找规律，再反推 idea。不凭空胡想。**
+# 🕵️ 现象驱动 · AI 科研工作流
+
+**先做实验找规律，再反推 idea。不凭空胡想。**
 
 一套跨平台、带可执行工具的科研工作流 skill——把「AI agent 想 idea 很不靠谱」这个毛病，用**现象驱动**和**真能跑的脚本**治住。
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-FDE68A.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/zhuowenzhang288-web/ai-research-workflow?style=social)](https://github.com/zhuowenzhang288-web/ai-research-workflow/stargazers)
+[![GitHub last commit](https://img.shields.io/github/last-commit/zhuowenzhang288-web/ai-research-workflow)](https://github.com/zhuowenzhang288-web/ai-research-workflow/commits)
+[![GitHub repo size](https://img.shields.io/github/repo-size/zhuowenzhang288-web/ai-research-workflow)](https://github.com/zhuowenzhang288-web/ai-research-workflow)
+[![Release](https://img.shields.io/badge/release-v1.0.0-DC2626.svg)](../../releases)
+
+![架构图](docs/architecture.svg)
+
+</div>
 
 ---
 
@@ -26,7 +38,6 @@
 
 **反过来**就通了——idea 是挖出来的，不是憋出来的：
 
-![架构图](docs/architecture.svg)
 
 在能精确测量的小系统里跑几百个秒级实验，让规律自己浮出来。下方色条标出 4 个配套脚本各自服务的环节。
 

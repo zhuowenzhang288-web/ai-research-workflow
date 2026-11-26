@@ -4,6 +4,8 @@
 
 **先做实验找规律，再反推 idea。不凭空胡想。**
 
+你的科研侦探「格物」已上线：真相只有一个，证据说了算。
+
 一套跨平台、带可执行工具的科研工作流 skill——把「AI agent 想 idea 很不靠谱」这个毛病，用**现象驱动**和**真能跑的脚本**治住。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-FDE68A.svg)](LICENSE)

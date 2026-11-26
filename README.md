@@ -18,6 +18,19 @@
 
 ---
 
+## 本仓是什么 · 两仓分工
+
+**本仓 = 方法论本体（skill）**：跨平台的 `SKILL.md` + 6 个零依赖脚本。不绑任何 harness，Claude Code / Codex / Cursor / opencode / DSH 都能用。它回答"**科研该怎么做**"。
+
+| 仓 | 角色 | 内容 |
+|---|---|---|
+| **ai-research-workflow**（本仓） | 跨平台方法/skill | SKILL.md + scripts + 评测证据 |
+| **[dsh-research-agent](https://github.com/zhuowenzhang288-web/dsh-research-agent)** | DSH 深度集成 | 把本仓 skill 装进 DSH + 科研模式 preset + 人格 + 自动循环 |
+
+想要"保证纪律在场、选模式即科研 agent"→ 用 DSH 版；想要"任何平台轻量即用"→ 用本仓。
+
+---
+
 ## 你的 AI 是不是也这样？
 
 | 痛点 | 表现 |
@@ -132,6 +145,8 @@ cd ai-research-workflow
 </details>
 
 8 道题的完整评测中，本题两臂产物与盲评原文已存档在 [docs/before-after/](docs/before-after/)——可自行复核每一个字。
+
+> **评测范围说明**：该 A/B 测的是 **skill 内容（方法）** 对产出质量的效应。DSH 版的 preset/人格解决的是另一问题——"纪律保证在场、不漏触发"的**可靠性**，尚未单独评测。两者不混为一谈。
 
 ---
 

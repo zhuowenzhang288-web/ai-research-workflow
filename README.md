@@ -151,12 +151,15 @@ cd ai-research-workflow
 ## 目录
 
 ```
-SKILL.md                  # 完整方法论（384 行 + 6 条实战教训）
+SKILL.md                  # 完整方法论（389 行 + 7 条实战教训）
+AUTO_MODE.md              # 自动循环模式：skill + goal + schedule 拼法
 scripts/
 ├── novelty_check.py      # 查新
+├── novelty_report.py     # 查新取证校验
+├── funnel.py             # 选题漏斗 + 防窄化预警
 ├── experiment_log.py     # 实验日志
 ├── verify_citations.py   # 引用核验
-└── audit_chain.py        # 五层审计
+└── audit_chain.py        # 五层审计 + 结果编造检查
 README.md
 LICENSE
 ```

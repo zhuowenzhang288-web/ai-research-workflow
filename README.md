@@ -58,10 +58,11 @@
 
 ## 不是又一份"提示词"，是能直接跑的脚本
 
-纯文档谁都会写，这套带 **4 个零依赖脚本**（只靠 Python 标准库，任何 agent 跑 `bash` 就能用）：
+纯文档谁都会写，这套带 **7 个零依赖脚本**（只靠 Python 标准库，任何 agent 跑 `bash` 就能用）：
 
 | 脚本 | 干什么 | 一句话用法 |
 |---|---|---|
+| `venue_probe.py` | 找实验模板 | `python3 scripts/venue_probe.py "关键词" --venue neurips` → 看顶会录用论文怎么做实验 |
 | `novelty_check.py` | 查新 | `python3 scripts/novelty_check.py "GRPO collapse"` → 直接列出 arXiv 候选 |
 | `novelty_report.py` | 查新取证校验 | 校验报告里每篇引用的「读取程度」标注，缺标即 FAIL |
 | `funnel.py` | 选题漏斗 | `add` 记录 / `list` 过滤 / `narrow-watch` 防窄化预警 |
@@ -80,7 +81,7 @@
 | 层 | 内容 | 加载方式 |
 |---|---|---|
 | `AGENTS.md` | 33 行核心纪律（现象驱动 / 查新取证 / 证据四分 / 门控） | **每次请求自动注入**，不漏 |
-| `SKILL.md` | 384 行完整方法论 + 6 条实战教训 | 按需加载，细节补全 |
+| `SKILL.md` | 384 行完整方法论 + 8 条实战教训 | 按需加载，细节补全 |
 
 用法：把 `AGENTS.md` 放到项目根目录（DSH 由 `dsh-agent-instructions` 插件自动注入；Claude Code / Codex 同理），再把 `SKILL.md` + `scripts/` 装进 skills 目录。核心纪律永远在场，完整方法论随取随用。
 
@@ -127,6 +128,7 @@ cd ai-research-workflow
 SKILL.md                  # 完整方法论（389 行 + 7 条实战教训）
 AUTO_MODE.md              # 自动循环模式：skill + goal + schedule 拼法
 scripts/
+├── venue_probe.py        # 顶会实验模板
 ├── novelty_check.py      # 查新
 ├── novelty_report.py     # 查新取证校验
 ├── funnel.py             # 选题漏斗 + 防窄化预警

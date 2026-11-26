@@ -4,8 +4,6 @@
 
 **先做实验找规律，再反推 idea。不凭空胡想。**
 
-你的科研侦探「格物」已上线：真相只有一个，证据说了算。
-
 一套跨平台、带可执行工具的科研工作流 skill——把「AI agent 想 idea 很不靠谱」这个毛病，用**现象驱动**和**真能跑的脚本**治住。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-FDE68A.svg)](LICENSE)
@@ -91,7 +89,7 @@ cd ai-research-workflow
 | **Codex** | `mkdir -p ~/.codex/skills/ai-research-workflow && cp -r SKILL.md scripts ~/.codex/skills/ai-research-workflow/` |
 | **Cursor** | `mkdir -p .cursor/skills/ai-research-workflow && cp -r SKILL.md scripts .cursor/skills/ai-research-workflow/` |
 | **opencode** | 在 `opencode.json` 里 `"instructions": ["/path/to/SKILL.md"]` |
-| **DeepSeek Harness** | `mkdir -p ~/.dsh/skills/ai-research-workflow && cp -r SKILL.md scripts ~/.dsh/skills/ai-research-workflow/`（或装 [bundle](https://github.com/zhuowenzhang288-web/gewu)） |
+| **DeepSeek Harness** | `mkdir -p ~/.dsh/skills/ai-research-workflow && cp -r SKILL.md scripts ~/.dsh/skills/ai-research-workflow/`（或装 [bundle](https://github.com/zhuowenzhang288-web/dsh-research-agent)） |
 
 > 核心三份东西：`AGENTS.md`（放项目根目录，自动注入兜底）+ `SKILL.md` + `scripts/`（装进 skills 目录），放对位置就能用，不绑定任何框架。
 

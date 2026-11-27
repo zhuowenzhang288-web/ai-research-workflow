@@ -139,6 +139,9 @@ scripts/
 └── audit_chain.py        # 五层审计 + 结果编造检查
 README.md
 LICENSE
+sync.sh                   # 三处副本一致性检查/同步（--check 可进 CI）
+docs/gen_architecture.py  # 架构图生成器（改布局只动变量，别手改 SVG）
+docs/architecture.svg     # 生成的图（skill 版）
 ```
 
 ## License

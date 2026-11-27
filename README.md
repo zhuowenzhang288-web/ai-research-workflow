@@ -20,7 +20,7 @@
 
 ## 本仓是什么 · 两仓分工
 
-**本仓 = 方法论本体（skill）**：跨平台的 `SKILL.md` + 6 个零依赖脚本。不绑任何 harness，Claude Code / Codex / Cursor / opencode / DSH 都能用。它回答"**科研该怎么做**"。
+**本仓 = 方法论本体（skill）**：跨平台的 `SKILL.md` + 8 个零依赖脚本。不绑任何 harness，Claude Code / Codex / Cursor / opencode / DSH 都能用。它回答"**科研该怎么做**"。
 
 | 仓 | 角色 | 内容 |
 |---|---|---|
@@ -58,10 +58,11 @@
 
 ## 不是又一份"提示词"，是能直接跑的脚本
 
-纯文档谁都会写，这套带 **7 个零依赖脚本**（只靠 Python 标准库，任何 agent 跑 `bash` 就能用）：
+纯文档谁都会写，这套带 **8 个零依赖脚本**（只靠 Python 标准库，任何 agent 跑 `bash` 就能用）：
 
 | 脚本 | 干什么 | 一句话用法 |
 |---|---|---|
+| `project_brief.py` | 立项确认 | `init` 填方向/资源/时间/目标 → `check` 查算力/时间硬约束 |
 | `venue_probe.py` | 找实验模板 | `python3 scripts/venue_probe.py "关键词" --venue neurips` → 看顶会录用论文怎么做实验 |
 | `novelty_check.py` | 查新 | `python3 scripts/novelty_check.py "GRPO collapse"` → 直接列出 arXiv 候选 |
 | `novelty_report.py` | 查新取证校验 | 校验报告里每篇引用的「读取程度」标注，缺标即 FAIL |
@@ -80,8 +81,8 @@
 
 | 层 | 内容 | 加载方式 |
 |---|---|---|
-| `AGENTS.md` | 33 行核心纪律（现象驱动 / 查新取证 / 证据四分 / 门控） | **每次请求自动注入**，不漏 |
-| `SKILL.md` | 384 行完整方法论 + 8 条实战教训 | 按需加载，细节补全 |
+| `AGENTS.md` | 36 行核心纪律（现象驱动 / 查新取证 / 证据四分 / 门控） | **每次请求自动注入**，不漏 |
+| `SKILL.md` | 427 行完整方法论 + 8 条实战教训 | 按需加载，细节补全 |
 
 用法：把 `AGENTS.md` 放到项目根目录（DSH 由 `dsh-agent-instructions` 插件自动注入；Claude Code / Codex 同理），再把 `SKILL.md` + `scripts/` 装进 skills 目录。核心纪律永远在场，完整方法论随取随用。
 
@@ -125,9 +126,10 @@ cd ai-research-workflow
 ## 目录
 
 ```
-SKILL.md                  # 完整方法论（389 行 + 7 条实战教训）
+SKILL.md                  # 完整方法论（427 行 + 8 条实战教训）
 AUTO_MODE.md              # 自动循环模式：skill + goal + schedule 拼法
 scripts/
+├── project_brief.py      # 立项确认
 ├── venue_probe.py        # 顶会实验模板
 ├── novelty_check.py      # 查新
 ├── novelty_report.py     # 查新取证校验

@@ -182,8 +182,24 @@ def build(target):
     svg.text(W / 2, TITLE_Y, title, size=32, fill=INK, weight="800", anchor="middle")
     svg.text(W / 2, SUB_Y, subtitle, size=14, fill="#64748B", anchor="middle")
 
+    # ── 顶部黑色横幅：8 步流程 ──────────────────────────────
+    banner_y = SUB_Y + 28
+    banner_h = 64
+    svg.rect(MARGIN, banner_y, inner, banner_h, fill="#0F172A", r=12)
+    steps = ["立项确认", "找实验模板", "造现象", "找规律", "反推 idea", "三轮查新", "上卡验证", "五层审计"]
+    colors = ["#FDE68A", "#93C5FD", "#6EE7B7", "#67E8F9", "#FCD34D", "#93C5FD", "#C4B5FD", "#CBD5E1"]
+    n = len(steps)
+    seg = (inner - 60) / n
+    for i, (t, c) in enumerate(zip(steps, colors)):
+        cx = MARGIN + 30 + i * seg
+        svg.circle(cx + 8, banner_y + banner_h / 2, 11, c)
+        svg.text(cx + 8, banner_y + banner_h / 2 + 5, str(i), size=12, fill="#0F172A", weight="700", anchor="middle")
+        svg.text(cx + 26, banner_y + banner_h / 2 + 5, t, size=13, fill="#F1F5F9", weight="600")
+        if i < n - 1:
+            svg.text(cx + seg - 18, banner_y + banner_h / 2 + 5, "→", size=14, fill="#475569", anchor="middle")
+
     # ── (a) 两排：第一排 5 张，第二排 3 张 ────────────────────
-    y = ROW_Y
+    y = ROW_Y + 80
     card_w = 330
     row1 = [
         ("brief",  "立项确认",    ["先问清：方向·算力", "时间·目标", "project_brief.py"], "第 0 步 · 先于一切"),
